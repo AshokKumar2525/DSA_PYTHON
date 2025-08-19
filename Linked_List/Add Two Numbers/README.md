@@ -12,6 +12,8 @@ You may assume the two numbers do not contain any leading zeros, except the numb
 ## Examples
 
 **Example 1:**
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/addtwonumber1.jpg" width="400">
+
 ```
 Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
@@ -33,36 +35,35 @@ Output: [8,9,9,9,0,0,0,1]
 
 ---
 
-## Constraints
-- Number of nodes in each linked list: **[1, 100]**  
-- `0 <= Node.val <= 9`  
-- Guaranteed no leading zeros in the number  
 
 ---
 
-## My Approach
-1. **Reverse the Lists First**  
-   - Since the digits are stored in reverse order, I first reverse the lists using a helper function `reverseList`.  
-   - After reversing, the most significant digit comes first, which makes the addition easier.  
+## Constraints
+- Number of nodes in each linked list: **[1, 100]**  
+- `0 <= Node.val <= 9`  
+- Guaranteed that the list represents a number without leading zeros  
 
-2. **Digit-wise Addition with Carry**  
-   - Traverse both lists simultaneously.  
-   - For each pair of nodes, add their values along with any carry from the previous step.  
-   - Create a new node for the result digit, and propagate the carry forward.  
+---
 
-3. **Handle Remaining Carry**  
-   - If there is a carry left after processing all nodes, add a final node.  
+## Approach
 
-4. **Reverse the Result (if needed)**  
-   - Since the result may be built in forward order, I reverse the final list again to return the expected format.  
+1. Use a **dummy head** node to simplify linked list construction.  
+2. Initialize a **carry = 0**.  
+3. Traverse both lists simultaneously:  
+   - Extract values `l1Val` and `l2Val` (default to `0` if the list is exhausted).  
+   - Compute `columnSum = l1Val + l2Val + carry`.  
+   - Update `carry = columnSum // 10`.  
+   - Create a new node with value `columnSum % 10` and attach it to the result.  
+4. Continue until both lists and carry are exhausted.  
+5. Return `dummy.next` (skipping the dummy head).  
 
 ---
 
 ## Complexity Analysis
 - **Time Complexity:** `O(max(m, n))`  
-  - We traverse both linked lists once, where `m` and `n` are their lengths.  
+  - Each node in both lists is processed once.  
 - **Space Complexity:** `O(max(m, n))`  
-  - Output list size is at most one node longer than the longer input list.  
+  - Output list has at most one extra node than the longer input list.  
 
 ---
 
