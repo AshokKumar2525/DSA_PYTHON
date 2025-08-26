@@ -82,3 +82,7 @@ This is a **binary search on the answer** problem.
    - When binary search finishes, `low` will be the minimum capacity needed.  
 
 ---
+
+## Complexities
+**⏱ Time Complexity:** O(n log(sum(weights)))
+**💾 Space Complexity:** O(1)
