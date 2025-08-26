@@ -83,7 +83,7 @@ code .
 ---
 ## 🎯 Progress Tracker
 <p align="center">
-  <img src="https://img.shields.io/badge/Problems%20Solved-150+-brightgreen?style=for-the-badge&logo=leetcode"/> 
+  <img src="https://img.shields.io/badge/Problems%20Solved-700+-brightgreen?style=for-the-badge&logo=leetcode"/> 
   <img src="https://img.shields.io/badge/Language-Python%20%26%20SQL-yellow?style=for-the-badge&logo=python"/> 
   <img src="https://img.shields.io/badge/Goal-Consistency-blueviolet?style=for-the-badge"/>
 </p>
